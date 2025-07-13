@@ -1,0 +1,45 @@
+{% extends 'lrc.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="search">
+    <h2>Encuentra tus Equipos</h2>
+    <form method="GET" action="{% url 'club_search' %}">
+        <input type="text" name="q" placeholder="Buscar Equipos..." value="{{ query|default_if_none:'' }}">
+        <button type="submit">Buscar</button>
+    </form> <br>
+
+    {% if clubs %}
+    <h3> Resultados de la búsqueda para "{{ query }}"</h3>
+    <ul>
+        {% for c in clubs %}
+        <li>
+            {{ c.name }}
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</section>
+
+<div class="paginator">
+    <span class="step-link">
+        {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}{% if query %}&q={{ query }}{% endif %}">Anterior</a>
+        {% endif %}
+
+        {# Comienzo del nuevo bloque condicional #}
+        {% if query %} {# Esto comprueba si existe una consulta de búsqueda #}
+            <span class="current">
+                Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}
+            </span>
+        {% endif %}
+        {# Fin del nuevo bloque condicional #}
+
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}{% if query %}&q={{ query }}{% endif %}">Siguiente</a>
+        {% endif %}
+    </span>
+</div>
+
+{% endblock %}

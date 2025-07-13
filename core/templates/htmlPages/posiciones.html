@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<main>
+  <h2>Posiciones en el Campo de Fútbol</h2>
+
+  <p>El fútbol es un deporte de equipo donde cada jugador cumple un rol específico para lograr el objetivo común:
+    ganar el partido. A continuación te explicamos las posiciones más comunes en el campo y sus funciones principales.
+  </p>
+
+  <h3>Portero (Arquero)</h3>
+  <p>Es el único jugador que puede usar las manos dentro del área penal. Su función principal es proteger la portería
+    y evitar que el balón entre en ella.</p>
+
+  <h3>Defensores</h3>
+  <ul>
+    <li><strong>Defensa Central:</strong> Ubicado en el centro de la defensa, se encarga de detener a los delanteros
+      rivales y despejar balones peligrosos.</li>
+    <li><strong>Lateral Derecho e Izquierdo:</strong> Juegan en los costados de la defensa, apoyando tanto en defensa
+      como en ataque por las bandas.</li>
+  </ul>
+
+  <h3>Centrocampistas (Mediocampistas)</h3>
+  <ul>
+    <li><strong>Centrocampista Defensivo:</strong> Ayuda a la defensa recuperando balones y distribuyendo juego.</li>
+    <li><strong>Centrocampista Ofensivo:</strong> Se encarga de crear jugadas de ataque, asistiendo a los delanteros.
+    </li>
+    <li><strong>Extremos:</strong> Juegan pegados a las bandas, son rápidos y habilidosos para desbordar y enviar
+      centros al área.</li>
+  </ul>
+
+  <h3>Delanteros</h3>
+  <ul>
+    <li><strong>Delantero Centro:</strong> Su principal función es anotar goles y estar siempre cerca del área rival.
+    </li>
+    <li><strong>Segundo Delantero:</strong> Apoya al delantero centro, combina juego y también puede asistir o anotar.
+    </li>
+  </ul>
+  <img src="{% static 'img/4.jpg' %}" alt="">
+</main>
+
+{% endblock %}

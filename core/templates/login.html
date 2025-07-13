@@ -1,0 +1,22 @@
+{% extends 'lrc.html' %}
+{% load static %}
+
+{% block content %}
+<section class="login-form-section">
+  <form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    {{ form.as_p }} {# Esto renderiza todos los campos del formulario como párrafos #}
+
+    {% if error_message %}
+    <p style="color: red;">{{ error_message }}</p>
+    {% endif %}
+
+    <button type="submit">Iniciar Sesión</button>
+  </form>
+
+  <p>
+    ¿No tienes cuenta? <a href="{% url 'register' %}">Regístrate aquí</a>
+    {# Si tienes una ruta de registro #}
+  </p>
+</section>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<main>
+  <h2>Reglas Básicas del Fútbol</h2>
+
+  <p>El fútbol es un deporte regido por un conjunto de reglas establecidas por la FIFA, cuyo objetivo es asegurar un
+    juego justo, seguro y emocionante para jugadores y espectadores.</p>
+
+  <h3>Duración del partido</h3>
+  <p>Un partido estándar dura 90 minutos, dividido en dos tiempos de 45 minutos cada uno, con un descanso de 15 minutos
+    entre ambos. El árbitro puede añadir tiempo adicional al final de cada tiempo para compensar interrupciones.</p>
+
+  <h3>Jugadores y sustituciones</h3>
+  <p>Cada equipo inicia el partido con 11 jugadores, incluyendo un portero. Durante el juego, los equipos pueden hacer
+    hasta cinco sustituciones en partidos oficiales, según las reglas actuales.</p>
+
+  <h3>Objetivo y anotación</h3>
+  <p>El objetivo es marcar goles introduciendo el balón completamente dentro de la portería contraria. El equipo con más
+    goles al final del partido gana.</p>
+
+  <h3>Faltas y sanciones</h3>
+  <p>Las faltas son infracciones a las reglas, como empujar, sujetar, patear intencionalmente al adversario, o tocar el
+    balón con la mano de forma deliberada. Las sanciones incluyen:</p>
+  <ul>
+    <li><strong>Tiros libres:</strong> Pueden ser directos o indirectos, dependiendo de la falta cometida.</li>
+    <li><strong>Penales:</strong> Se conceden cuando una falta ocurre dentro del área penal del equipo defensor.</li>
+    <li><strong>Tarjetas amarilla y roja:</strong> La amarilla es una advertencia; dos amarillas equivalen a una roja.
+      La roja implica la expulsión inmediata del jugador.</li>
+  </ul>
+
+  <h3>Fuera de juego</h3>
+  <p>El fuera de juego es una regla que impide que un jugador gane ventaja permaneciendo más cerca de la portería rival
+    que el balón y el penúltimo defensor al momento de recibir un pase. Esta regla fomenta el juego limpio y evita
+    posiciones estratégicas injustas.</p>
+
+  <h3>Balón en juego y fuera de juego</h3>
+  <p>El balón está en juego mientras no haya cruzado completamente las líneas de banda o de gol, ya sea por el suelo o
+    por el aire.</p>
+
+  <h3>Otros aspectos importantes</h3>
+  <ul>
+    <li><strong>Saques:</strong> El balón se pone en juego mediante saques de banda, esquina, puerta y tiros libres.
+    </li>
+    <li><strong>Árbitro y asistentes:</strong> Son responsables de hacer cumplir las reglas y sancionar las faltas
+      durante el partido.</li>
+    <li><strong>VAR:</strong> El sistema de Asistencia Arbitral por Video ayuda al árbitro a revisar decisiones
+      importantes como goles, penales, tarjetas rojas y errores claros.</li>
+  </ul>
+  <img src="{% static 'img/1.jpg' %}" alt="">
+</main>
+
+{% endblock %}

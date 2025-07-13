@@ -1,0 +1,351 @@
+html, body {
+  height: 120%;
+  margin: 0;
+  padding: 0;
+}
+
+#toggleTheme {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1em;
+  font-weight: bold;
+  padding: 5px 24px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  display: block;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* MODO OSCURO (estilo que ya tenías) */
+body.dark-mode #toggleTheme {
+  background: linear-gradient(135deg, #4b4b4b, #1f1f1f);
+  color: white;
+}
+
+/* Hover oscuro */
+body.dark-mode #toggleTheme:hover {
+  background: linear-gradient(135deg, #5c5c5c, #2c2c2c);
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+}
+
+/* MODO CLARO (versión blanca con estilo similar) */
+body.light-mode #toggleTheme {
+  background: linear-gradient(135deg, #ffffff, #e0e0e0);
+  color: black;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover claro */
+body.light-mode #toggleTheme:hover {
+  background: linear-gradient(135deg, #f9f9f9, #d6d6d6);
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+/* Modo claro */
+body.light-mode {
+  background-color: white;
+  color: black;
+}
+
+/* Modo oscuro (modo inicial) */
+body.dark-mode {
+  background-color: black;
+  color: white;
+}
+
+/* Transición suave */
+body {
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Segoe Script', Arial, sans-serif;
+  background-color: white;
+  color: black;
+  animation: fadeInBody 1s ease-in-out;
+  min-height: 100vh;
+}
+
+header, footer {
+  background-color: #0a3d10;
+  color: white;
+  text-align: center;
+  padding: 1em 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  animation: 1s ease-in-out;
+}
+
+header {
+  animation-name: slideDown;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5em;
+  text-shadow: 2px 2px 4px black;
+}
+
+footer {
+  margin-top: auto;
+  animation-name: fadeInFooter;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.15);
+}
+
+nav {
+  background: linear-gradient(-45deg, #178a0d, #0a6b22, #1cc146, #0a3d10);
+  background-size: 400% 400%;
+  animation: moveGradient 10s ease infinite, slideInNav 0.8s ease-out;
+  border-bottom: 1px solid #064a16;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+nav ul {
+  list-style: none;
+  padding: 10px 0px;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2em;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 transparent;
+}
+
+nav ul li a:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+  transform: scale(1.05);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+nav ul li a.active {
+  background-color: rgba(0, 0, 0, 0.6);
+  transform: scale(1.05);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+main {
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
+  flex: 1;
+  animation: fadeInMain 1s ease-in-out;
+}
+
+main h2 {
+  font-size: 2em;
+  text-shadow: 1px 1px 3px  dimgray;
+  color: #0a3d10;
+}
+
+@keyframes fadeInBody {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideInNav {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes moveGradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes fadeInMain {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInFooter {
+  from { opacity: 0; transform: translateY(50%); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.social-links a {
+  display: inline-block;
+  margin: 0 4px;
+  line-height: 1;
+  border-radius: 6px;
+  padding: 2px;
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.social-links a:focus,
+.social-links a:active {
+  background-color: black;
+  box-shadow: 0 0 0 3px rgba(23, 138, 13, 0.6);
+  outline: none;
+}
+
+.social-links a img {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  margin: 5px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.social-links a img:hover {
+  transform: scale(1.1);
+}
+
+.social-links a img:active {
+  transform: scale(0.95);
+}
+
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+img {
+  display: block;
+  margin: 30px auto;
+  max-width: 90%;
+  height: auto;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+  border-radius: 12px;
+}
+
+.create {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1em;
+  font-weight: bold;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-top: 20px;
+  text-decoration: none;
+  display: inline-block;
+  color: white;
+  background: linear-gradient(135deg, #28a745, #218838);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s ease;
+}
+
+.create:hover {
+  background: linear-gradient(135deg, #34ce57, #1e7e34);
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+}
+
+.create:active {
+  background: linear-gradient(135deg, #1a1a1a, #000000);
+  color: white;
+  transform: scale(0.97);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.dash-card {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1em;
+  font-weight: bold;
+  padding: 10px 24px;
+  border-radius: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  margin: 10px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos por tipo */
+.dash-card.create {
+  background: linear-gradient(135deg, #28a745, #218838);
+  color: white;
+}
+
+.dash-card.view {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+}
+
+.dash-card.edit {
+  background: linear-gradient(135deg, #ffc107, #e0a800);
+  color: black;
+}
+
+.dash-card.delete {
+  background: linear-gradient(135deg, #dc3545, #c82333);
+  color: white;
+}
+
+.dash-card.details {
+  background: linear-gradient(135deg, #6c757d, #5a6268);
+  color: white;
+}
+
+.dash-card:hover {
+  transform: scale(1.05);
+}
+
+.user-session {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin: 10px 20px 0 0;
+  font-family: 'Segoe UI', sans-serif;
+  z-index: 100;
+}
+
+.user-box {
+  background-color: #e8f5e9;
+  padding: 10px 16px;
+  border-radius: 10px;
+  color: #0a3d10;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+}
+
+.session-btn {
+  background-color: #178a0d;
+  color: white;
+  font-weight: bold;
+  padding: 10px 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.session-btn:hover {
+  background-color: #0a6b22;
+  transform: scale(1.05);
+}
+
+.acciones-equipos {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 10px 20px;
+  justify-content: center;
+  margin: 20px;
+}

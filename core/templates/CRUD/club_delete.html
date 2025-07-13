@@ -1,0 +1,16 @@
+{% extends 'lrc.html' %}
+{% load static %}
+
+{% block content %}
+<section class="POST">
+  <h2>Eliminar Club</h2>
+  <p>¿Estás seguro que quieres eliminar el club <strong>{{ club.name }}</strong>?</p>
+
+  <form method="post" action="{% url 'club_delete' club.id %}">
+    {% csrf_token %}
+    <button type="submit">Sí, eliminar</button>
+    <a href="{% url 'club_list' %}">Cancelar</a>
+    <a href="{% url 'equipos' %}" class="volver">Volver</a>
+  </form>
+</section>
+{% endblock %}

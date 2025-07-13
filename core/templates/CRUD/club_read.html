@@ -1,0 +1,21 @@
+% extends 'lrc.html' %}
+{% load static %}
+
+{% block content %}
+<section class="POST">
+  <h2>{{ club.name }}</h2>
+
+  {% if club.image %}
+  <img src="{{ club.image.url }}" alt="{{ club.name }}" width="250" />
+  {% endif %}
+
+  <p><strong>Descripción:</strong> {{ club.description|default:"Sin descripción" }}</p>
+  <p><strong>Ciudad / País:</strong> {{ club.city }}</p>
+  <p><strong>Año de Fundación:</strong> {{ club.foundation_year|default:"No especificado" }}</p>
+  <p><strong>Títulos Ganados:</strong> {{ club.titles_won }}</p>
+  <p><strong>Entrenador:</strong> {{ club.coach_name|default:"No especificado" }}</p>
+
+  <a href="{% url 'club_update' club.id %}">Editar</a> |
+  <a href="{% url 'club_delete' club.id %}">Eliminar</a> |
+</section>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'lrc.html' %}
+{% load static %}
+
+{% block content %}
+<section class="POST">
+  <form method="post" action="{% url 'club_update' club.id %}" enctype="multipart/form-data">
+    <fieldset>
+      {% csrf_token %}
+
+      <label for="name">Nombre:</label>
+      <input type="text" id="name" name="name" value="{{ club.name }}" required>
+
+      <label for="description">Descripción:</label>
+      <textarea id="description" name="description">{{ club.description }}</textarea>
+
+      <label for="city">País:</label>
+      <input type="text" id="city" name="city" value="{{ club.city }}" required>
+
+      <label for="foundation_year">Año de fundación:</label>
+      <input type="number" id="foundation_year" name="foundation_year" value="{{ club.foundation_year }}" required>
+
+      <label for="titles_won">Títulos ganados:</label>
+      <input type="number" id="titles_won" name="titles_won" value="{{ club.titles_won }}" required>
+
+      <label for="coach_name">Nombre del entrenador:</label>
+      <input type="text" id="coach_name" name="coach_name" value="{{ club.coach_name }}" required>
+
+      <label for="image">Imagen actual:</label><br>
+      {% if club.image %}
+      <img src="{{ club.image.url }}" alt="{{ club.name }}" width="150" /><br>
+      {% else %}
+      <p>No hay imagen disponible</p>
+      {% endif %}
+
+      <label for="image">Cambiar imagen:</label>
+      <input type="file" name="image" id="image">
+
+      <button type="submit">Actualizar</button>
+      <a href="{% url 'equipos' %}" class="volver">Volver</a>
+
+    </fieldset>
+  </form>
+</section>
+{% endblock %}

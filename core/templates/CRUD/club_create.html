@@ -1,0 +1,39 @@
+{% extends 'lrc.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="POST">
+  <form method="post" action="{% url 'club_create' %}" enctype="multipart/form-data">
+    <fieldset>
+      {% csrf_token %}
+
+      <label for="name">Nombre:</label>
+      <input type="text" id="name" name="name" placeholder="Nombre del club" required>
+
+      <label for="description">Descripción:</label>
+      <textarea id="description" name="description" placeholder="Descripcion del club"></textarea>
+
+      <label for="city">Pais:</label>
+      <input type="text" id="city" name="city" placeholder="Nombre del club" required>
+
+      <label for="foundation_year">Año de fundacion:</label>
+      <input type="date" id="foundation_year" name="foundation_year" placeholder="Año de fundacion" required>
+
+      <label for="titles_won">Titulos ganados:</label>
+      <textarea id="titles_won" name="titles_won" placeholder="Titulos ganados" required></textarea>
+
+      <label for="coach_name">Nombre del entrenador:</label>
+      <input type="text" id="coach_name" name="coach_name" placeholder="Nombre del entrenador" required>
+
+      <input type="file" name="image" id="image">
+
+      <button type="submit">Crear</button>
+      <a href="{% url 'equipos' %}" class="volver">Volver</a>
+
+    </fieldset>
+  </form>
+
+</section>
+
+{% endblock %}

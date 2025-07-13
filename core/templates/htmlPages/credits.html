@@ -1,0 +1,32 @@
+{% extends 'lrc.html' %}
+{% load static %}
+
+{% block content %}
+<h1><strong>Información del Creador</strong></h1>
+<p><strong>Nombre:</strong> Kevin Perez</p>
+<p><strong>Teléfono:</strong> +58 412-0319505</p>
+<p><strong>Correo:</strong> perezkevineduar@gmail.com</p>
+<p><strong>Ciudad:</strong> Rubio, Táchira</p>
+<a href="{% url 'index' %}" class="volver">Volver</a>
+<audio id="bgMusic" src="{% static 'audio/ambient.mp3' %}" loop preload="auto"></audio>
+<button id="toggleMusic" class="paused">Reproducir música</button>
+
+<script>
+  const audio = document.getElementById('bgMusic');
+  const button = document.getElementById('toggleMusic');
+
+  button.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.play();
+      button.textContent = 'Pausar música';
+      button.classList.remove('paused');
+      button.classList.add('playing');
+    } else {
+      audio.pause();
+      button.textContent = 'Reproducir música';
+      button.classList.remove('playing');
+      button.classList.add('paused');
+    }
+  });
+</script>
+{% endblock %}

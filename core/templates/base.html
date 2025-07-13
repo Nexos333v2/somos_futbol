@@ -1,0 +1,79 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <title>Sobre Fútbol</title>
+</head>
+
+<body>
+  <header>
+    <h1>Pasión por el Fútbol</h1>
+    <nav>
+      <ul>
+        <li><a class="{% if request.resolver_match.url_name == 'index' %}active{% endif %}"
+            href="{% url 'index' %}">Inicio</a></li>
+        <li><a class="{% if request.resolver_match.url_name == 'historia' %}active{% endif %}"
+            href="{% url 'historia' %}">Historia</a></li>
+        <li><a class="{% if request.resolver_match.url_name == 'jugadores' %}active{% endif %}"
+            href="{% url 'jugadores' %}">Jugadores</a></li>
+        <li><a class="{% if request.resolver_match.url_name == 'reglas' %}active{% endif %}"
+            href="{% url 'reglas' %}">Reglas</a></li>
+        <li><a class="{% if request.resolver_match.url_name == 'posiciones' %}active{% endif %}"
+            href="{% url 'posiciones' %}">Posiciones</a></li>
+        <li><a class="{% if request.resolver_match.url_name == 'equipos' %}active{% endif %}"
+            href="{% url 'equipos' %}">Equipos</a></li>
+        <li><a class="{% if request.resolver_match.url_name == 'terminos' %}active{% endif %}"
+            href="{% url 'terminos' %}">Terminos</a></li>
+
+        <li><a class="{% if request.resolver_match.url_name == 'credits' %}active{% endif %}"
+            href="{% url 'credits' %}">Créditos</a></li>
+
+        <button id="toggleTheme">Cambiar tema</button>
+
+        <script>
+          const toggleBtn = document.getElementById("toggleTheme");
+          const body = document.body;
+
+          // Modo oscuro por defecto
+          body.classList.add("dark-mode");
+          toggleBtn.textContent = "Modo oscuro";
+
+          toggleBtn.addEventListener("click", () => {
+            if (body.classList.contains("dark-mode")) {
+              body.classList.remove("dark-mode");
+              body.classList.add("light-mode");
+              toggleBtn.textContent = "Modo Claro";
+            } else {
+              body.classList.remove("light-mode");
+              body.classList.add("dark-mode");
+              toggleBtn.textContent = "Modo Oscuro";
+            }
+          });
+        </script>
+
+      </ul>
+    </nav>
+  </header>
+
+  {% block content %}
+  {% endblock %}
+
+  <footer>
+    <p class="social-text">¡Síguenos en nuestras redes sociales!</p>
+    <div class="social-links">
+      <a href="#"><img src="{% static 'icons/facebook.svg' %}" alt="Facebook"></a>
+      <a href="#"><img src="{% static 'icons/whatsapp.svg' %}" alt="whatsapp"></a>
+      <a href="#"><img src="{% static 'icons/telegram.svg' %}" alt="telegram"></a>
+      <a href="#"><img src="{% static 'icons/discord.svg' %}" alt="discord"></a>
+      <a href="#"><img src="{% static 'icons/instagram.svg' %}" alt="instagram"></a>
+    </div>
+    <p class="copyright-text">&copy; 2025 Pasión por el Fútbol</p>
+  </footer>
+</body>
+
+</html>

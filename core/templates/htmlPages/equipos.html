@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="acciones-equipos">
+    <a href="{% url 'club_create' %}" class="dash-card create">Crear equipo</a>
+    <a href="{% url 'club_search' %}" class="dash-card view">Buscar equipos</a>
+</div>
+
+<div class="acciones-equipos">
+    {% for club in clubs %}
+    <a href="{% url 'club_update' club.id %}" class="dash-card edit">Editar{{ club.name }}</a>
+    <a href="{% url 'club_delete' club.id %}" class="dash-card delete">Eliminar{{ club.name }}</a>
+    <a href="{% url 'club_read' club.id %}" class="dash-card details">Ver{{ club.name }}</a>
+    {% empty %}
+    <p>No hay clubes registrados aún.</p>
+    {% endfor %}
+</div>
+
+{% endblock %}
