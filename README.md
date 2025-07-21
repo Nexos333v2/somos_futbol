@@ -12,8 +12,8 @@ Una plataforma web para la gestión y visualización de información relacionada
 
 - Python 3.11  
 - Django 5  
-- PostgreSQL  
-- Docker (opcional)
+- MySQL 8.0.30  
+- Apache HTTP Server 2.4.54  
 
 ## 🛠️ Instalación
 
