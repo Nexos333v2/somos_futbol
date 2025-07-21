@@ -18,7 +18,7 @@ Una plataforma web para la gestión y visualización de información relacionada
 ## 🛠️ Instalación
 
 ```bash
-git clone https://github.com/usuario/somos-futbol.git
+git clone https://github.com/Nexos333v2/somos-futbol.git
 cd somos_futbol
 
 # Crear entorno virtual
