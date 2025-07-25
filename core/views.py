@@ -37,20 +37,21 @@ def reglas(request):
 def terminos(request):
     return render (request, 'htmlPages/terminos.html' )
     
-def club_create(request):
-    return render(request, 'CRUD/club_create.html')
+# def club_create(request):
+#     return render(request, 'CRUD/club_create.html')
 
-def club_search(request):
-    return render(request, 'CRUD/club_search.html')
+# def club_search(request):
+#     return render(request, 'CRUD/club_search.html')
 
-def club_update(request, id):
-    return render(request, 'CRUD/club_update.html')
+# def club_update(request, id):
+#     return render(request, 'CRUD/club_update.html')
 
-def club_delete(request, id):
-    return render(request, 'CRUD/club_delete.html')  
+# def club_delete(request, id):
+#     return render(request, 'CRUD/club_delete.html')  
 
 def club_read(request, id):
-    return render(request, 'CRUD/club_read.html')
+    club = get_object_or_404(Club, id=id)
+    return render(request, 'CRUD/club_read.html', {'club': club})
 
 def equipos(request):
     clubs = Club.objects.all()
