@@ -32,6 +32,3 @@ env\Scripts\activate
 
 # Instalar dependencias
 pip install -r requirements.txt
-=======
-# somos futbol 
->>>>>>> main
