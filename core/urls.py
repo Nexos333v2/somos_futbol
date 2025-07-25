@@ -12,10 +12,10 @@ urlpatterns = [
     path ('reglas/', reglas, name = 'reglas'),
     path ('terminos/', reglas, name = 'terminos'),
     
-    path('clubs/create/', views.club_create, name='club_create'),
-    path('clubs/search/', views.club_search, name='club_search'),
-    path('clubs/update/<int:id>/', views.club_update, name='club_update'),
-    path('clubs/delete/<int:id>/', views.club_delete, name='club_delete'),
+    path('clubs/create/', views.ClubCreateView.as_view(), name='club_create'),
+    path('clubs/search/', views.ClubListView.as_view(), name='club_search'),
+    path('clubs/update/<int:id>/', views.ClubUpdateView.as_view(), name='club_update'),
+    path('clubs/delete/<int:id>/', views.ClubDeleteView.as_view(), name='club_delete'),
     path('clubs/read/<int:id>/', views.club_read, name='club_read'),
     
     path('login/', UserLoginView.as_view(), name='login'),

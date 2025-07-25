@@ -8,14 +8,63 @@
     <a href="{% url 'club_search' %}" class="dash-card view">Buscar equipos</a>
 </div>
 
-<div class="acciones-equipos">
+
+
+
+<div class="club-list" style="display: flex; flex-direction: column; align-items: center;">
     {% for club in clubs %}
-    <a href="{% url 'club_update' club.id %}" class="dash-card edit">Editar{{ club.name }}</a>
-    <a href="{% url 'club_delete' club.id %}" class="dash-card delete">Eliminar{{ club.name }}</a>
-    <a href="{% url 'club_read' club.id %}" class="dash-card details">Ver{{ club.name }}</a>
+    <div class="club-card" style="width: 400px; margin: 1em auto; background: rgba(0,0,0,0.7); padding: 1em; border-radius: 10px; text-align: center;">
+        {% if club.image %}
+            <img src="{{ club.image.url }}" alt="{{ club.name }}" class="club-img" style="max-width:300px;max-height:300px;">
+        {% endif %}
+        <h2>{{ club.name }}</h2>
+        <p><strong>Ciudad:</strong> {{ club.city }}</p>
+        <p><strong>Año de Fundación:</strong> {{ club.foundation_year|date:'Y' }}</p>
+        <p><strong>Entrenador:</strong> {{ club.coach_name }}</p>
+        {% if club.description %}
+        <p><strong>Descripción:</strong> {{ club.description }}</p>
+        {% endif %}
+        <div class="club-actions">
+            <a href="{% url 'club_read' club.id %}" class="dash-card details">Ver</a>
+        </div>
+    </div>
     {% empty %}
     <p>No hay clubes registrados aún.</p>
     {% endfor %}
 </div>
+
+
+<div class="acciones-equipos" style="margin-top: 2em; text-align: center;">
+    <a href="{% url 'club_create' %}" class="dash-card create">Crear equipo</a>
+    <a href="{% url 'club_search' %}" class="dash-card view">Buscar equipos</a>
+
+    <form method="get" action="" style="display: inline-block; margin-left: 1em;">
+        <label for="club_select" style="color:white;">Selecciona un equipo:</label>
+        <select id="club_select" name="club_id" style="padding: 0.3em 1em; border-radius: 5px;">
+            {% for club in clubs %}
+                <option value="{{ club.id }}">{{ club.name }}</option>
+            {% endfor %}
+        </select>
+        <a href="#" id="modificarBtn" class="dash-card edit" style="margin-left: 0.5em;">Modificar equipo</a>
+        <a href="#" id="eliminarBtn" class="dash-card delete" style="margin-left: 0.5em;">Eliminar equipo</a>
+    </form>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const select = document.getElementById('club_select');
+        const modificarBtn = document.getElementById('modificarBtn');
+        const eliminarBtn = document.getElementById('eliminarBtn');
+        if (select && modificarBtn && eliminarBtn) {
+            function updateLinks() {
+                const clubId = select.value;
+                modificarBtn.href = `/core/clubs/update/${clubId}/`;
+                eliminarBtn.href = `/core/clubs/delete/${clubId}/`;
+            }
+            select.addEventListener('change', updateLinks);
+            updateLinks();
+        }
+    });
+</script>
 
 {% endblock %}

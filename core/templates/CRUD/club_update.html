@@ -16,11 +16,12 @@
       <label for="city">País:</label>
       <input type="text" id="city" name="city" value="{{ club.city }}" required>
 
+
       <label for="foundation_year">Año de fundación:</label>
-      <input type="number" id="foundation_year" name="foundation_year" value="{{ club.foundation_year }}" required>
+      <input type="number" id="foundation_year" name="foundation_year" value="{{ club.foundation_year|date:'Y' }}" required>
 
       <label for="titles_won">Títulos ganados:</label>
-      <input type="number" id="titles_won" name="titles_won" value="{{ club.titles_won }}" required>
+      <input type="number" id="titles_won" name="titles_won" value="{{ club.titles_won|default_if_none:'' }}" required>
 
       <label for="coach_name">Nombre del entrenador:</label>
       <input type="text" id="coach_name" name="coach_name" value="{{ club.coach_name }}" required>
